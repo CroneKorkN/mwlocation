@@ -1,0 +1,52 @@
+
+html
+  head
+    meta charset="utf-8"
+    css:
+      html {
+        font-family: sans;
+      }
+      body {
+        max-width: 32rem;
+        margin: 1rem auto;
+        background: #eee;
+      }
+      .line {
+        margin:  .7rem 0;
+        padding: .5rem;
+        border-radius: .3rem;
+        box-shadow: 0 0 .3rem rgba(0,0,0,.1);
+        background: #fff;
+      }
+      .when {
+        background: gray;
+        display: inline-block;
+        color: white;
+        border-radius: .3rem;
+        padding: .2rem .4rem;
+        margin-left: -1rem;
+        font-weight: bold;
+      }
+      .where {
+        text-align: right;
+      }
+      a:link, a:visited {
+        color: #333;
+      }
+      .day {
+        text-align: center;
+        margin: .5rem;
+      }
+  body
+    table
+      - day = ""
+      - @result.each do |row|
+        - if day != DateTime.parse(row[0]).strftime("%a, %d.%m.%Y")
+          .day
+            = day = DateTime.parse(row[0]).strftime("%a, %d.%m.%Y")
+        .line
+          .when
+            = DateTime.parse(row[0]).strftime("%H:%M")
+          .where
+            a href="http://maps.google.com/?q=#{row[2]},#{row[3]}"
+              = row[1][0..-10]
