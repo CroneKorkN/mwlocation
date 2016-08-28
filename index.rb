@@ -14,8 +14,9 @@ class CGI_
   def params
     {
       "lon" => [50+r],
-      "lat" => [8+r]
+       "lat" => [8+r]
     }
+    {}
   end
   def header
   end
@@ -38,7 +39,7 @@ if cgi.params.key? "lon"
   
   print db.query(q, date, lon, lat, location)
   puts "hallo MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
-else
+elsif cgi.params["password"] == ["1234"]
   @result = db.execute "
     SELECT *
     FROM `locations`
@@ -46,4 +47,6 @@ else
     LIMIT 100;
   "
   puts Slim::Template.new('template.slim').render(self)
+else
+  puts Slim::Template.new('login.slim').render(self)
 end
