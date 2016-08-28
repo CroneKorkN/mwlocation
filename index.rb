@@ -1,13 +1,13 @@
 #!/usr/bin/ruby
 
 require "geocoder"
-#require "cgi"
+require "cgi"
 require "sqlite3"
 require "slim"
 require "date"
 
 # init cgi
-class CGI
+class CGI_
   def r
     rand(1000).to_f/1000
   end
