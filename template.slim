@@ -2,9 +2,11 @@ doctype html
 html
   head
     meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1"
     css:
       html {
         font-family: sans;
+        padding: 0 1rem;
       }
       body {
         max-width: 32rem;
@@ -17,10 +19,14 @@ html
         border-radius: .3rem;
         box-shadow: 0 0 .3rem rgba(0,0,0,.1);
         background: #fff;
+        position: relative;
       }
       .when {
         background: gray;
         display: inline-block;
+        position: absolute;
+        left -1rem;
+        top: -.3rem;
         color: white;
         border-radius: .3rem;
         padding: .2rem .4rem;

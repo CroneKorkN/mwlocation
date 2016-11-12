@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-require "geocoder"
+require "geocode"
 require "cgi"
 require "sqlite3"
 require "slim"
